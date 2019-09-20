@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCP PWA Sample Site</title>
+    <meta name="codelab" content="KCP-PWA-v1">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
+    <!-- CODELAB: Add link rel manifest -->
+   <!-- <link rel="manifest" href="scripts/manifest1.json">-->
+    <!-- CODELAB: Add iOS meta tags and icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="KCP PWA">
+    <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">
+    <!-- CODELAB: Add description here -->
+    <meta name="description" content="A sample KCP app">
+    <!-- CODELAB: Add meta theme-color -->
+    <meta name="theme-color" content="#2F3BA2" />
+    <script>
+
+    </script>
+</head>
+<body>
+
+<div id="test1">
+    <h1>hello KCP world</h1>
+    <h1>PWA Sample Test</h1>
+    <button id="butInstall" aria-label="Install" hidden>설치하기</button>
+    <button disabled class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+        Enable Push Messaging
+    </button>
+    <section class="subscription-details js-subscription-details is-invisible">
+        <pre><code class="js-subscription-json"></code></pre>
+    </section>
+</div>
+<div id="test">
+</div>
+
+<!--<div id="test" style="dis">
+    <iframe src="https://menu.orderpick.kr/menu/table?shopId=S190000032" width="100%" height="500" ></iframe>
+</div>-->
+<script src="scripts/app.js"></script>
+<script src="scripts/install.js"></script>
+<script>
+
+    /*function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    const qur_st =  getParameterByName("shopId");
+    console.log("param = "+qur_st);
+    if(qur_st !== ''){
+        location.replace("https://menu.orderpick.kr/menu/table?shopId="+qur_st);
+    }*/
+
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    var applicationServerPublicKey = "";
+
+    const qur_st =  getParameterByName("m");
+    console.log("param = "+qur_st);
+    const link = document.createElement('link');
+    const iframe_tag = document.createElement('iframe');
+    const set_iframe = document.getElementById("test");
+    link.rel = "manifest";
+    iframe_tag.width="100%";
+    iframe_tag.height="800";
+    var sw = '';
+
+    if(qur_st !== ''){
+        link.href = "scripts/manifest.json";
+        iframe_tag.src="https://menu.orderpick.kr/menu/table?shopId=S190000031";
+        applicationServerPublicKey    = 'BLZXqnLkhcdj7c3OYcMf8x_YR7cV2I7t_A1nhMvP2ZlPhgR-OozXMw2LP8TS4I-W9-Vm0QD7poimQb6shzjimo0';
+        sw='./service-worker1.js';
+        console.log(link, 1, iframe_tag);
+    }else {
+        link.href = "scripts/manifest1.json";
+        iframe_tag.src="https://menu.orderpick.kr/menu/table?shopId=S190000032";
+        applicationServerPublicKey = 'BOzlhGJWAUkx_OvsCVn0PmgKvYJatIipA8N0q1uqoprfDApj4ARsWZFAMBXRH4i7htl2C58fAWfXH5EB56zKSz0';
+        sw='./service-worker.js';
+        console.log(link, 2, iframe_tag);
+    }
+
+    document.head.appendChild(link);
+    set_iframe.appendChild(iframe_tag);
+
+    /**
+     * ==================================================================================================
+     * **/
+
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register(sw)
+                .then(function(swReg) {
+                    console.log('Service Worker is registered', swReg);
+                    swRegistration = swReg;
+                    initializeUI();
+                })
+                .catch(function(error) {
+                    console.error('Service Worker Error', error);
+                });
+            console.log('Service Worker Registered');
+        });
+    }else {
+        console.warn('Push messaging is not supported');
+        pushButton.textContent = 'Push Not Supported';
+    }
+
+</script>
+<script src="scripts/main.js"></script>
+</body>
+</html>
