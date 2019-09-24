@@ -1,0 +1,11 @@
+fpSL_WfO2Lg:APA91bGwqA8YJ1NUKM7fW2rhDXiLjZMl97jb9_mQ4KBzlUAl9Nvs3vPAaaLPE5NuMJ6GwMAT0igpHUE8BYHu0hFBjL6s-jAbMyx1t4rK6SifLug9u8oYNotO_S9TrxvpAwBNgv5_llv8
+
+{
+  "notification": {
+    "title": "Portugal vs. Denmark",
+    "body": "5 to 1",
+    "icon": "firebase-logo.png",
+    "click_action": "http://localhost:8081"
+  },
+  "to": "YOUR-IID-TOKEN"
+}
