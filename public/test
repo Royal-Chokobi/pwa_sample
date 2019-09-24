@@ -9,3 +9,8 @@ fpSL_WfO2Lg:APA91bGwqA8YJ1NUKM7fW2rhDXiLjZMl97jb9_mQ4KBzlUAl9Nvs3vPAaaLPE5NuMJ6G
   },
   "to": "YOUR-IID-TOKEN"
 }
+
+
+
+
+{"endpoint":"https://fcm.googleapis.com/fcm/send/eBRklvArItM:APA91bH4v6ENpBRF4ICtpUBBjnQHBDqT5cZLGS_N0j_SETWsH1VR6C6EGYqR2TlnShfUUkYfebk8Jz1Yd3o1Dv3aGu0sYBhFwKgRZlWk2sMeHp5ZAxn7wvujhYvWzNFk1dO_eCxkQnW0","expirationTime":null,"keys":{"p256dh":"BD0QxnZryTFDzvSuJLfFQUYxbuf5nA4R5-HdJSzlC1GmYjkR4VM0TOcL8u85Zxh5NR8CzDW4XG3qMwWic6AxPlw","auth":"WLQgPCaFhOiIE6SsHamrtw"}}
