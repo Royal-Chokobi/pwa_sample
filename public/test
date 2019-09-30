@@ -1,0 +1,33 @@
+fpSL_WfO2Lg:APA91bGwqA8YJ1NUKM7fW2rhDXiLjZMl97jb9_mQ4KBzlUAl9Nvs3vPAaaLPE5NuMJ6GwMAT0igpHUE8BYHu0hFBjL6s-jAbMyx1t4rK6SifLug9u8oYNotO_S9TrxvpAwBNgv5_llv8
+
+{
+  "notification": {
+    "title": "Portugal vs. Denmark",
+    "body": "5 to 1",
+    "icon": "firebase-logo.png",
+    "click_action": "http://localhost:8081"
+  },
+  "to": "YOUR-IID-TOKEN"
+}
+
+
+
+
+{"endpoint":"https://fcm.googleapis.com/fcm/send/eBRklvArItM:APA91bH4v6ENpBRF4ICtpUBBjnQHBDqT5cZLGS_N0j_SETWsH1VR6C6EGYqR2TlnShfUUkYfebk8Jz1Yd3o1Dv3aGu0sYBhFwKgRZlWk2sMeHp5ZAxn7wvujhYvWzNFk1dO_eCxkQnW0","expirationTime":null,"keys":{"p256dh":"BD0QxnZryTFDzvSuJLfFQUYxbuf5nA4R5-HdJSzlC1GmYjkR4VM0TOcL8u85Zxh5NR8CzDW4XG3qMwWic6AxPlw","auth":"WLQgPCaFhOiIE6SsHamrtw"}}
+
+
+
+cRyD8KbsY6o:APA91bFwnhd-BNtQ2cMyvZKqDoQj_XMIe7iO7ZZnLNakYpfijMRfEPi-cxE9YH6oTptbXw3Cq0CgO4how8MojMT-KYL7s-yVDjyYBjKbWzW1F7cSpzsz4Hh-8zws_rWkMjsdnmHpyfT7
+
+
+
+eovSvEw0H1c:APA91bGcELKGbt36Ir_ZyBpMbikUsncf6SzMvVG1GElZNcb6-LLHG6xGNyXSVf9D-vpdj6bdP9oB4A37QnnJdGBsOII5ZmKmYJAVDSvg5mN2eRkHEfP8GsoAHadN27Kxo1CKCWw8yNJg
+
+
+
+fr7sZAfQqTA:APA91bHE6rnaqV9EVCX5s1dgiAIGgUVD4ViKmD2NP1z6k31ruY7Q0hOYE7Qy5wbb263T8i_koJNsf6CIxGxoi5STi2m2CA8mY6_NByA-rIOCQ1pk1oVeKxTUmDzNXA2sIATHupReS2iu
+
+
+fJLFixUWiRE:APA91bHwjQhNVssWYNlN_lhXXrL3xrZ4MiO0LGOb7QkCAop06ZcF-FYd_bA3OCXmHd27bNllrJhjzGukN1L_UWzuRZQZifyE-E3Vmk9zpVvMlJ1ULudVFpRNZqcb99Nz8qZO86Z1cgod
+
+{"subscription":{"endpoint":"https://fcm.googleapis.com/fcm/send/c-m0D202Gwk:APA91bEitcwhsjIdgYkMA7GRLvzPLQLn7yn9DXAsgp-sWQOdOVygdHZyZgbr5X4IFRm9ZMp7VMm2KdtFs42gIRcm_zYoIG2GUbGOp4q0Na7IBDh2hUNf59DSfwasbYE4nz0eORmY-Zlo","expirationTime":null,"keys":{"p256dh":"BHZQ8VuF-YvZ2TDJx1XSksQnUtkJ_5f3m5_TGaxDo-aqfwGSNrH2z8XaysSWrrVgrvIjx4_RRqXaeb4HDIvvgSc","auth":"gudp4EECp7ewLpdH7hQ96w"}},"data":"하하하하","applicationKeys":{"public":"BDEBnd1g-mU1BSkR81YsauD6Pyox65XInIe8dsloxwuVrrIOnhOSWsqdsvgBXCiqsexDjicsROjmfG5fHcF56vk","private":"Q5WDI12Zy6UphwdFzbX89AN5OAnaP5xf8JTnGn3pOwE"}}
