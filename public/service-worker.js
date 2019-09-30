@@ -4,7 +4,6 @@
 const CACHE_NAME = 'kcp-cache-v2';
 const DATA_CACHE_NAME = 'data-cache-v2';
 const _version = 'v1';
-
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
     './',
@@ -65,6 +64,7 @@ self.addEventListener('activate', (evt) => {
 self.addEventListener('fetch', (evt) => {
     if (evt.request.mode !== 'navigate') {
         // Not a page navigation, bail.
+        console.log('[ServiceWorker] Fetch 1 ', evt.request.url);
         return;
     }
     evt.respondWith(
@@ -129,6 +129,6 @@ self.addEventListener('notificationclick', function(event) {
     event.notification.close();
 
     event.waitUntil(
-        clients.openWindow('https://menu.orderpick.kr/menu/table?shopId=S190000032')
+        clients.openWindow('https://menu.orderpick.kr/menu/table?shopId=S190000031')
     );
 });

@@ -87,6 +87,9 @@ function updateBtn() {
 
 function subscribeUser() {
   const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+
+  console.log("applicationServerKey ===== ", applicationServerKey);
+
   swRegistration.pushManager.subscribe({
     userVisibleOnly: true,
     applicationServerKey: applicationServerKey
@@ -96,7 +99,7 @@ function subscribeUser() {
 
         updateSubscriptionOnServer(subscription);
 
-        isSubscribed = true;
+       // isSubscribed = true;
 
         updateBtn();
       })
@@ -109,6 +112,8 @@ function subscribeUser() {
 function updateSubscriptionOnServer(subscription) {
   // TODO: Send subscription to application server
 
+    console.log("subscription ===== ", subscription);
+
   const subscriptionJson = document.querySelector('.js-subscription-json');
   const subscriptionDetails =
       document.querySelector('.js-subscription-details');
@@ -116,6 +121,9 @@ function updateSubscriptionOnServer(subscription) {
   if (subscription) {
     subscriptionJson.textContent = JSON.stringify(subscription);
     subscriptionDetails.classList.remove('is-invisible');
+
+      console.log("subscriptionJson.textContent ===== ", subscriptionJson.textContent);
+
   } else {
     subscriptionDetails.classList.add('is-invisible');
   }

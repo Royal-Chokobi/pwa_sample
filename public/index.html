@@ -28,7 +28,9 @@
 <div id="test1">
     <h1>hello KCP world</h1>
     <h1>PWA Sample Test</h1>
-    <button id="butInstall" aria-label="Install" hidden>설치하기</button>
+    <p id="token" style="word-break: break-all;"></p>
+    <div id="messages"></div>
+    <button id="butInstall" aria-label="Install" >설치하기</button>
     <button disabled class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
         Enable Push Messaging
     </button>
@@ -45,18 +47,6 @@
 <script src="scripts/app.js"></script>
 <script src="scripts/install.js"></script>
 <script>
-
-    /*function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
-    const qur_st =  getParameterByName("shopId");
-    console.log("param = "+qur_st);
-    if(qur_st !== ''){
-        location.replace("https://menu.orderpick.kr/menu/table?shopId="+qur_st);
-    }*/
 
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -75,18 +65,19 @@
     iframe_tag.width="100%";
     iframe_tag.height="800";
     var sw = '';
-
+    applicationServerPublicKey    = 'BDEBnd1g-mU1BSkR81YsauD6Pyox65XInIe8dsloxwuVrrIOnhOSWsqdsvgBXCiqsexDjicsROjmfG5fHcF56vk';
+    sw='./service-worker.js';
     if(qur_st !== ''){
         link.href = "scripts/manifest.json";
         iframe_tag.src="https://menu.orderpick.kr/menu/table?shopId=S190000031";
-        applicationServerPublicKey    = 'BLZXqnLkhcdj7c3OYcMf8x_YR7cV2I7t_A1nhMvP2ZlPhgR-OozXMw2LP8TS4I-W9-Vm0QD7poimQb6shzjimo0';
-        sw='./service-worker1.js';
+      //  applicationServerPublicKey    = 'BDEBnd1g-mU1BSkR81YsauD6Pyox65XInIe8dsloxwuVrrIOnhOSWsqdsvgBXCiqsexDjicsROjmfG5fHcF56vk';
+      //  sw='./service-worker.js';
         console.log(link, 1, iframe_tag);
     }else {
         link.href = "scripts/manifest1.json";
         iframe_tag.src="https://menu.orderpick.kr/menu/table?shopId=S190000032";
-        applicationServerPublicKey = 'BOzlhGJWAUkx_OvsCVn0PmgKvYJatIipA8N0q1uqoprfDApj4ARsWZFAMBXRH4i7htl2C58fAWfXH5EB56zKSz0';
-        sw='./service-worker.js';
+      //  applicationServerPublicKey = 'BPjwJkgTKGrqoRQpEZQiH6_LHkE0_ZiWcgVVXUOPAh0-mHZHhXoRdh1b1qeMT4RysZGxaIpYUnHoBdy952ZOmrE';
+      //  sw='./service-worker1.js';
         console.log(link, 2, iframe_tag);
     }
 
@@ -118,5 +109,11 @@
 
 </script>
 <script src="scripts/main.js"></script>
+<script defer src="/__/firebase/4.6.1/firebase-app.js"></script>
+<script defer src="/__/firebase/4.6.1/firebase-auth.js"></script>
+<script defer src="/__/firebase/4.6.1/firebase-database.js"></script>
+<script defer src="/__/firebase/4.6.1/firebase-messaging.js"></script>
+<script defer src="/__/firebase/4.6.1/firebase-storage.js"></script>
+<script defer src="/__/firebase/init.js"></script>
 </body>
 </html>

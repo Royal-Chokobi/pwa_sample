@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-messaging.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<h1 id="bigOne"></h1>
+
+<script>
+    // Your web app's Firebase configuration
+    var admin = require('firebase-admin');
+    function sendPushMessage() {
+        const subscriptionTextArea = document.querySelector('#push-subscription');
+        const textToSendTextArea = document.querySelector('#push-data');
+        const textToSendTo = document.querySelector('#push-to');
+
+        const subscriptionString = subscriptionTextArea.value.trim();
+        const dataString = textToSendTextArea.value;
+
+        /*saveDetails({
+            subscription: subscriptionString,
+            data: dataString
+        });*/
+
+        if (subscriptionString.length === 0 ) {
+            return Promise.reject(new Error('Please provide a push subscription.'));
+        }
+
+        let subscriptionObject = null;
+        try {
+            subscriptionObject = JSON.parse(subscriptionString);
+        } catch (err) {
+            return Promise.reject(new Error('Unable to parse subscription as JSON'));
+        }
+
+        if (!subscriptionObject.endpoint) {
+            return Promise.reject(new Error('The subscription MUST have an endpoint'));
+        }
+
+        if (subscriptionObject.endpoint.indexOf('…') !== -1) {
+            return Promise.reject(new Error('The subscription endpoint appears to be ' +
+                'truncated (It has \'...\' in it).\n\nDid you copy it from the console ' +
+                'in Chrome?')
+            );
+        }
+
+        const publicElement = "BDEBnd1g-mU1BSkR81YsauD6Pyox65XInIe8dsloxwuVrrIOnhOSWsqdsvgBXCiqsexDjicsROjmfG5fHcF56vk";
+        const privateElement = "Q5WDI12Zy6UphwdFzbX89AN5OAnaP5xf8JTnGn3pOwE";
+        console.log(JSON.stringify({
+            subscription: subscriptionObject,
+            data: dataString,
+            applicationKeys: {
+                public: publicElement,
+                private: privateElement,
+            }
+        }));
+        return fetch(subscriptionObject.endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization' : 'key=AAAASMTlqVE:APA91bF4bnFp2mJNTrtS4caxERBzl07uCq5Qgmo85FdFyyfD_sIOxJEFSBI7L8ZE5n7h5mJMdVCYyxL1fRnELZfuTFSX56DPcYDRBMB2HaUt0ZhNldczvfalHrUrvUtQcybOhLdvONCr'
+            },
+            body: JSON.stringify({
+                subscription: subscriptionObject,
+                data: dataString,
+                applicationKeys: {
+                    public: publicElement,
+                    private: privateElement,
+                },
+                to :textToSendTo.value
+            })
+        })
+            .then((response) => {
+                if (response.status !== 200) {
+                    return response.text()
+                        .then((responseText) => {
+                            console.log(responseText);
+                        });
+                }
+            });
+    }
+
+</script>
+
+<h1> 가맹점 31번 설빙앱으로 전송 send msg ~~~~~ test!!!!!!!!!!!</h1>
+
+<div class="mdl-textfield mdl-js-textfield is-dirty is-upgraded" data-upgraded=",MaterialTextfield">
+    <textarea class="mdl-textfield__input" type="text" rows="3" id="push-subscription" style="width: 600px; height: 200px;"></textarea>
+    <label class="mdl-textfield__label" for="push-subscription">여기에 키를 넣으세요.</label>
+</div>
+<div class="mdl-textfield mdl-js-textfield is-dirty is-upgraded" data-upgraded=",MaterialTextfield">
+    <textarea class="mdl-textfield__input" type="text" rows="3" id="push-data" style="width: 600px; height: 200px;"></textarea>
+    <label class="mdl-textfield__label" for="push-data">보낼 메시지~~~~</label>
+</div>
+<div class="mdl-textfield mdl-js-textfield is-dirty is-upgraded" data-upgraded=",MaterialTextfield">
+    <textarea class="mdl-textfield__input" type="text" rows="3" id="push-to" style="width: 600px; height: 200px;"></textarea>
+    <label class="mdl-textfield__label" for="push-to">받는 사람</label>
+</div>
+<button class="js-send-push mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple" onclick="sendPushMessage();">
+    전송~!!!!!
+    <span class="mdl-button__ripple-container"><span class="mdl-ripple is-animating" style="width: 382.499px; height: 382.499px; transform: translate(-50%, -50%) translate(95px, 24px);"></span></span></button>
+
+</body>
+</html>
